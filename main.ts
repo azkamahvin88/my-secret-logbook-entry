@@ -37,6 +37,9 @@ function gate(text: string): void {
   if (text.trim() === "") {
     throw new Error("entry is whitespace-only, gate refuses it");
   }
+  if (text.includes("\n") || text.includes("\r")) {
+    throw new Error("entry must be a single diary line, no line breaks");
+  }
 }
 
 function main(): void {
